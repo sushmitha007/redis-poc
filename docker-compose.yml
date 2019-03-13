@@ -1,0 +1,22 @@
+  version: '3'
+  services:
+    poc:
+      image: spring
+      build: .
+      ports:
+        - "8083:8083"
+      expose:
+        - 8083
+      network_mode: host
+      hostname: localhost
+
+    redis:
+      image: redis
+      command: [ "redis-server", "--protected-mode", "no" ]
+      ports:
+      - "6379:6379"
+      expose:
+        - 6379
+      network_mode: host
+      hostname: localhost
+
